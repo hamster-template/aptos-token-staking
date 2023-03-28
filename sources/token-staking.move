@@ -86,6 +86,12 @@ module mokshyastaking::tokenstaking
         treasury_cap:staking_treasury_cap,
         });
     }
+
+    spec create_staking {
+        is_valid_coin_type:CoinType;
+        pragma aborts_if_is_strict;
+    }
+
     public entry fun update_dpr(
         creator: &signer,
         dpr:u64,//rate of payment,
@@ -322,6 +328,8 @@ module mokshyastaking::tokenstaking
     use std::bcs;
     #[test_only] 
     use aptos_framework::timestamp;
+    use aptos_framework::account::Account;
+
     struct MokshyaMoney { }
     #[test(creator = @0xa11ce, receiver = @0xb0b, token_staking = @mokshyastaking)]
    fun test_create_staking(
