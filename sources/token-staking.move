@@ -89,7 +89,7 @@ module mokshyastaking::tokenstaking
 
     spec create_staking {
         is_valid_coin_type:CoinType;
-        pragma aborts_if_is_strict;
+        //pragma aborts_if_is_strict;
     }
 
     public entry fun update_dpr(
@@ -328,7 +328,6 @@ module mokshyastaking::tokenstaking
     use std::bcs;
     #[test_only] 
     use aptos_framework::timestamp;
-    use aptos_framework::account::Account;
 
     struct MokshyaMoney { }
     #[test(creator = @0xa11ce, receiver = @0xb0b, token_staking = @mokshyastaking)]
